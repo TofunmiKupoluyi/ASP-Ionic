@@ -1,0 +1,43 @@
+<ion-view>
+    <ion-header-bar style="width:100%; padding:0px">
+        <ion-tabs class="tabs-top tabs-striped tabs-calm tabs-color-active-light">
+            <!-- Dashboard Tab -->
+            <ion-tab title="Public Rant" icon-off="ion-ios-cloud-outline" icon-on="ion-ios-cloud" href="#/tab/dash">
+
+            </ion-tab>
+
+            <!-- Chats Tab -->
+            <ion-tab title="Liked Rants" icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" href="#/tab/dash-likes">
+
+            </ion-tab>
+
+            <!-- Account Tab -->
+            <ion-tab title="Personal Rant" icon-off="icon ion-ios-locked-outline" icon-on="icon ion-ios-locked" href="#/tab/dash-personal">
+            </ion-tab>
+            <ion-tab title="Search" icon-off="ion-ios-search" href="#/tab/dash-search" icon-on="ion-ios-search-strong">
+            </ion-tab>
+        </ion-tabs>
+    </ion-header-bar>
+
+    <ion-content class="has-header has-subheader" style='background-color:hsl(0,0%, 99%); padding-top:15px;'>
+        <center><input type="text" placeholder="Search for a rant ..." style="width:95%; padding: 10px; background-color: hsl(0,0%, 90%)" ng-model="query" ng-change="searchRant(query)" class="stable"></input></center>
+        <div ng-show="((query.length>0 && query.length<3)? true : false )">
+            <center>
+                <br>
+                <i class="icon ion-android-warning" style="font-size:80px; color: gray;"></i>
+                <br> <span style="color:gray"> Please input a longer query </span>
+            </center>
+        </div>
+        <div class="list padding" ng-repeat="x in searchResponse | orderBy: '-' track by $index" ng-show="((query.length>=0 && query.length<3)? false : true )">
+            <div>
+                <div class="item item-text-wrap">
+                    <b>Pseudonym: {{x.pseudonym}}</b>
+                    <br><br> {{x.content}}
+                </div>
+                <div class="item item-divider">
+                    <button class="button icon icon ion-reply"></button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

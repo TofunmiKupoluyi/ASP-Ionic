@@ -1,0 +1,30 @@
+<ion-view class="view-light" view-title="">
+    <ion-content has-tabs>
+        <br>
+        <div class="chat" ng-controller="chatController">
+            <span ng-repeat="x in messages">
+                    <div class="chat_container">
+                        <div class ="bubble {{x.user_sent_by}}">
+                            <b>{{decrypt(x.message_content, x.message_security_key)}}</b>
+                        </div>
+                        <div class="adminName{{x.user_sent_by}}"><h5><small><b>{{x.sender_name}}</b></small></div> 
+                            
+                    </div>
+                <br>
+                </span>
+        </div>
+        <br><br>
+    </ion-content>
+    <form id="footer-input">
+        <ion-footer-bar keyboard-attach class="item-input-inset foo">
+            <div class="col col-80" style="padding:0; ">
+                <center><textarea class="no-resize talkcontainer " style="width:98%; padding-top:5px " placeholder="Type your message ... " ng-model="message"></textarea></center>
+            </div>
+            <div class="col " style="padding-top:0 ">
+                <center><button class="button btn button-calm " ng-click="sendMessage()"><center><i class="icon ion-android-send "></i></center></button></center>
+            </div>
+        </ion-footer-bar>
+    </form>
+
+
+</ion-view>

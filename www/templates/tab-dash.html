@@ -1,0 +1,72 @@
+<ion-view>
+    <ion-header-bar style="width:100%; padding:0px">
+        <ion-tabs class="tabs-top tabs-striped tabs-calm tabs-color-active-light">
+            <!-- Dashboard Tab -->
+            <ion-tab title="Public Rant" icon-off="ion-ios-cloud-outline" icon-on="ion-ios-cloud" href="#/tab/dash">
+
+            </ion-tab>
+
+            <!-- Chats Tab -->
+            <ion-tab title="Liked Rants" icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" href="#/tab/dash-likes">
+
+            </ion-tab>
+
+            <!-- Account Tab -->
+            <ion-tab title="Personal Rant" icon-off="icon ion-ios-locked-outline" icon-on="icon ion-ios-locked" href="#/tab/dash-personal">
+            </ion-tab>
+            <ion-tab title="Search" href="#/tab/dash-search" icon-off="ion-ios-search" icon-on="ion-ios-search-strong">
+            </ion-tab>
+        </ion-tabs>
+    </ion-header-bar>
+    <ion-content class="has-header has-subheader" style='background-color:hsl(0,0%, 99%)' on-swipe-right="goBack()" on-swipe-left="goForward()">
+        <ion-refresher on-refresh="getPublicRants()">
+
+        </ion-refresher>
+        <div class="list padding" ng-repeat="x in publicRants | orderBy: '-' track by $index">
+            <div>
+                <a class="item item-text-wrap" ng-click="openRant(publicRants[(publicRants.length-1)-$index], $index, 'rants')">
+                    <b>{{x.pseudonym}}</b>
+                    <br><br> {{x.content}}
+                </a>
+                <div class="item item-divider">
+
+                    <button class="{{liked[(publicRants.length-1)-$index] || defaultLike}}" id = "likeButtonPublic{{$index}}" style="display:inline-block" ng-click="likeRant($index)"></button>
+                    <button class="button icon icon ion-reply" ng-click="openRant(publicRants[(publicRants.length-1)-$index], $index, 'rants')"></button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="fixed-outside">
+            <button style="border-radius: 50%; box-shadow: 0px 0px 5px #b3b3b3" class="button button-round button-calm icon ion-compose composeButtonSize" ng-click="openModal()"></button>
+    </div>
+     <!-- <form id="footer-input">
+        <ion-footer-bar keyboard-attach class="item-input-inset foo">
+            <div class="col col-80" style="padding:0; ">
+                <center><textarea class="no-resize talkcontainer " style="width:98%; padding-top:5px " placeholder="Talk your mind ... " ng-model="rant"></textarea></center>
+            </div>
+            <div class="col " style="padding-top:0 ">
+                <center><button class="button btn button-calm " ng-click="postRant(rant) "><center><i class="icon ion-android-send "></i></center></button></center>
+            </div>
+        </ion-footer-bar>
+    </form>  -->
+    <!-- <ion-pull-up-footer class="bar-stable" default-height="30px">
+            <div class="title" style="font-size:14px;"ion-pull-up-trigger><b>RANT</b></div>
+            <ion-pull-up-handle width="120" height="15" icon-expand="ion-chevron-up" icon-collapse="ion-chevron-down" style="border-radius: 5px 5px 0 0; border-style:solid; border-width: 1px; border-color:#cccccc; border-bottom-style:none;">
+            </ion-pull-up-handle>
+            <ion-pull-up-content scroll="false">
+                <div class="list card">
+                    <label class = "item item-input">
+                        <input type = "text" placeholder = "Pseudonym" ng-model="pseudonym" />
+                    </label>
+
+                    <label class = "item item-input" style="height:70px;">
+                        <textarea type = "text" style="height: 100%; width:100%;" ng-model="rant" placeholder = "Rant to the world ..." ></textarea>
+                    </label>
+                    
+                </div>
+                <div style="padding-right:10px; padding-left:10px;">
+                    <button class="button button-block button-calm" ng-click="postRant(rant, pseudonym)"><b>POST YOUR RANT</b></button>
+                </div>
+        </ion-pull-up-content>
+    </ion-pull-up-footer> -->
+</ion-view>

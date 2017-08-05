@@ -1,0 +1,72 @@
+<ion-view>
+    <ion-header-bar style="width:100%; padding:0px">
+        <ion-tabs class="tabs-top tabs-striped tabs-calm tabs-color-active-light">
+            <!-- Dashboard Tab -->
+            <ion-tab title="Public Rant" icon-off="ion-ios-cloud-outline" icon-on="ion-ios-cloud" href="#/tab/dash">
+
+            </ion-tab>
+
+            <!-- Chats Tab -->
+            <ion-tab title="Liked Rants" icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" href="#/tab/dash-likes">
+
+            </ion-tab>
+
+            <!-- Account Tab -->
+            <ion-tab title="Personal Rant" icon-off="icon ion-ios-locked-outline" icon-on="icon ion-ios-locked" href="#/tab/dash-personal">
+            </ion-tab>
+            <ion-tab title="Search" icon-off="ion-ios-search" href="#/tab/dash-search" icon-on="ion-ios-search-strong">
+            </ion-tab>
+        </ion-tabs>
+    </ion-header-bar>
+
+    <ion-content class="has-header has-subheader has-footer has-subfooter" style='background-color:hsl(0,0%, 99%)'>
+        <ion-refresher on-refresh="getPrivateRants()">
+
+        </ion-refresher>
+        <div class="list padding" ng-repeat="x in privateRants | orderBy: '-' track by $index">
+            <div>
+                <a class="item item-text-wrap" ng-click="openRant(x, $index, 'privateRants')">
+                    <b>Pseudonym: {{x.pseudonym}}</b>
+                    <br><br> {{x.content}}
+                </a>
+                <div class="item item-divider">
+                    <button class="button icon icon ion-reply" ng-click="openRant(x, $index, 'privateRants')"></button>
+                    <button class="button icon icon ion-trash-a" ng-click="showActionsheet($index)"></button>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+
+    <!-- <form id="footer-input">
+        <ion-footer-bar keyboard-attach class="item-input-inset foo">
+            <div class="col col-80" style="padding:0; ">
+                <center><textarea class="no-resize talkcontainer " style="width:98%; padding-top:5px " placeholder="Rant to yourself ... " ng-model="privateRant"></textarea></center>
+            </div>
+            <div class="col " style="padding-top:0 ">
+                <center><button class="button btn button-calm " ng-click="postPrivateRant(privateRant) "><center><i class="icon ion-android-send "></i></center></button></center>
+            </div>
+        </ion-footer-bar>
+    </form> -->
+
+    <ion-pull-up-footer class="bar-stable" default-height="30px">
+            <div class="title" style="font-size:14px;" ion-pull-up-trigger><b>PRIVATE RANT</b></div>
+            <ion-pull-up-handle width="120" height="15" icon-expand="ion-chevron-up" icon-collapse="ion-chevron-down" style="border-radius: 5px 5px 0 0; border-style:solid; border-width: 1px; border-color:#cccccc; border-bottom-style:none;">
+            </ion-pull-up-handle>
+            <ion-pull-up-content scroll="false">
+                <div class="list card">
+                    <label class = "item item-input">
+                        <input type = "text" placeholder = "Pseudonym" ng-model="privatePseudonym" />
+                    </label>
+
+                    <label class = "item item-input" style="height:70px;">
+                        <textarea type = "text" style="height: 100%; width:100%;" ng-model="privateRant" placeholder = "Rant to yourself, writing is therapeutic ..." ></textarea>
+                    </label>
+                    
+                </div>
+                <div style="padding-right:10px; padding-left:10px;">
+                    <button class="button button-block button-calm" ng-click="postPrivateRant(privateRant, privatePseudonym)"><b>POST YOUR RANT</b></button>
+                </div>
+        </ion-pull-up-content>
+    </ion-pull-up-footer>
+</ion-view>

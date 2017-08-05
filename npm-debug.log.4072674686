@@ -1,0 +1,58 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'view',
+1 verbose cli   'ionic',
+1 verbose cli   'dist-tags.latest',
+1 verbose cli   '--json' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.0
+4 silly mapToRegistry name ionic
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry data Result {
+7 silly mapToRegistry   raw: 'ionic',
+7 silly mapToRegistry   scope: null,
+7 silly mapToRegistry   escapedName: 'ionic',
+7 silly mapToRegistry   name: 'ionic',
+7 silly mapToRegistry   rawSpec: '',
+7 silly mapToRegistry   spec: 'latest',
+7 silly mapToRegistry   type: 'tag' }
+8 silly mapToRegistry uri https://registry.npmjs.org/ionic
+9 verbose request uri https://registry.npmjs.org/ionic
+10 verbose request no auth needed
+11 info attempt registry request try #1 at 4:16:40 PM
+12 verbose request id 9d29a31a2cc698c8
+13 verbose etag W/"59836cad-18d309"
+14 verbose lastModified Thu, 03 Aug 2017 18:34:21 GMT
+15 http request GET https://registry.npmjs.org/ionic
+16 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+17 info attempt registry request try #2 at 4:16:50 PM
+18 verbose etag W/"59836cad-18d309"
+19 verbose lastModified Thu, 03 Aug 2017 18:34:21 GMT
+20 http request GET https://registry.npmjs.org/ionic
+21 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+22 info attempt registry request try #3 at 4:17:50 PM
+23 verbose etag W/"59836cad-18d309"
+24 verbose lastModified Thu, 03 Aug 2017 18:34:21 GMT
+25 http request GET https://registry.npmjs.org/ionic
+26 silly get cb [ 304, undefined ]
+27 verbose etag https://registry.npmjs.org/ionic from cache
+28 verbose get saving ionic to /Users/tofunmi/.npm/registry.npmjs.org/ionic/.cache.json
+29 verbose correctMkdir /Users/tofunmi/.npm correctMkdir not in flight; initializing
+30 verbose exit [ 0, true ]
+31 verbose stack Error: write EPIPE
+31 verbose stack     at exports._errnoException (util.js:1018:11)
+31 verbose stack     at WriteWrap.afterWrite (net.js:800:14)
+32 verbose cwd /Users/tofunmi/Documents/Ionic/asp4
+33 error Darwin 16.4.0
+34 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "view" "ionic" "dist-tags.latest" "--json"
+35 error node v6.11.0
+36 error npm  v3.10.10
+37 error code EPIPE
+38 error errno EPIPE
+39 error syscall write
+40 error write EPIPE
+41 error If you need help, you may report this error at:
+41 error     <https://github.com/npm/npm/issues>
+42 verbose exit [ 1, true ]

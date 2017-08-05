@@ -1,0 +1,60 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'view',
+1 verbose cli   '@ionic/cli-plugin-ionic1',
+1 verbose cli   'dist-tags.latest',
+1 verbose cli   '--json' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.0
+4 silly mapToRegistry name @ionic/cli-plugin-ionic1
+5 silly mapToRegistry scope (from package name) @ionic
+6 verbose mapToRegistry no registry URL found in name for scope @ionic
+7 silly mapToRegistry using default registry
+8 silly mapToRegistry registry https://registry.npmjs.org/
+9 silly mapToRegistry data Result {
+9 silly mapToRegistry   raw: '@ionic/cli-plugin-ionic1',
+9 silly mapToRegistry   scope: '@ionic',
+9 silly mapToRegistry   escapedName: '@ionic%2fcli-plugin-ionic1',
+9 silly mapToRegistry   name: '@ionic/cli-plugin-ionic1',
+9 silly mapToRegistry   rawSpec: '',
+9 silly mapToRegistry   spec: 'latest',
+9 silly mapToRegistry   type: 'tag' }
+10 silly mapToRegistry uri https://registry.npmjs.org/@ionic%2fcli-plugin-ionic1
+11 verbose request uri https://registry.npmjs.org/@ionic%2fcli-plugin-ionic1
+12 verbose request no auth needed
+13 info attempt registry request try #1 at 4:16:40 PM
+14 verbose request id 94ea7825421a5889
+15 verbose etag W/"59836c9b-bd9f8"
+16 verbose lastModified Thu, 03 Aug 2017 18:34:03 GMT
+17 http request GET https://registry.npmjs.org/@ionic%2fcli-plugin-ionic1
+18 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+19 info attempt registry request try #2 at 4:16:50 PM
+20 verbose etag W/"59836c9b-bd9f8"
+21 verbose lastModified Thu, 03 Aug 2017 18:34:03 GMT
+22 http request GET https://registry.npmjs.org/@ionic%2fcli-plugin-ionic1
+23 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+24 info attempt registry request try #3 at 4:17:50 PM
+25 verbose etag W/"59836c9b-bd9f8"
+26 verbose lastModified Thu, 03 Aug 2017 18:34:03 GMT
+27 http request GET https://registry.npmjs.org/@ionic%2fcli-plugin-ionic1
+28 silly get cb [ 304, undefined ]
+29 verbose etag https://registry.npmjs.org/@ionic%2fcli-plugin-ionic1 from cache
+30 verbose get saving @ionic/cli-plugin-ionic1 to /Users/tofunmi/.npm/registry.npmjs.org/_40ionic_252fcli-plugin-ionic1/.cache.json
+31 verbose correctMkdir /Users/tofunmi/.npm correctMkdir not in flight; initializing
+32 verbose exit [ 0, true ]
+33 verbose stack Error: write EPIPE
+33 verbose stack     at exports._errnoException (util.js:1018:11)
+33 verbose stack     at WriteWrap.afterWrite (net.js:800:14)
+34 verbose cwd /Users/tofunmi/Documents/Ionic/asp4
+35 error Darwin 16.4.0
+36 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "view" "@ionic/cli-plugin-ionic1" "dist-tags.latest" "--json"
+37 error node v6.11.0
+38 error npm  v3.10.10
+39 error code EPIPE
+40 error errno EPIPE
+41 error syscall write
+42 error write EPIPE
+43 error If you need help, you may report this error at:
+43 error     <https://github.com/npm/npm/issues>
+44 verbose exit [ 1, true ]
